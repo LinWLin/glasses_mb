@@ -1,0 +1,42 @@
+<nav class="navbar navbar-default navbar-fixed-top mycenter" style="border-bottom-color:transparent; ">
+	<div class="container-fluid login text-center">
+		<a href="#/glasses_index" class="back"><span class="icon-fh"></span></a>
+		个人中心
+		<!-- 退出按钮 -->
+		<a href="javascript:;" class="exit" ng-show="false">退出</a>
+	</div>
+</nav>
+<div class="container-fluid mycenterList" style=" background-color: #E81121;">
+	<!-- 未登录 -->
+	<div class="LoginReg text-center" ng-show="true">
+		<a href="#/login">登录 | 注册</a>
+	</div>
+	<!-- 已登录 -->
+	<div class="myInfo" ng-show="false">
+		<a href="#/myInfo">
+			<h3 class="text-center">18305627585</h4>
+		</a>
+	</div>
+</div>
+<div class="container-fluid mycenterList"> 
+	<a class="myOrder clearfix" href="#/myOrder">
+		<span class="pull-left">我的订单</span>
+		<span class="pull-right">查看全部 <i></i></span>
+	</a> 
+</div>
+<div class="container-fluid mycenterList"> 
+	<ul class="list-unstyled">
+		<li ng-repeat="center in status">
+			<a href="javascript:;">
+				<div ng-class="center.class" class="mycenterimg"></div>
+				<div class="mycentertxt" ng-bind="center.txt"></div>
+			</a>
+		</li>
+	</ul>
+</div>
+<div class="container-fluid mycenterList" ng-repeat="list in listes"> 
+	<a class="myOrder clearfix" ng-href="{{list.href}}">
+		<span class="pull-left" ng-bind="list.txt"></span>
+		<span class="pull-right"><i></i></span>
+	</a> 
+</div>

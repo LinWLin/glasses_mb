@@ -1,0 +1,67 @@
+<nav class="navbar navbar-default navbar-fixed-top mycenter">
+	<div class="container-fluid login text-center">
+		<a href="#/mycenter" class="back"><span class="icon-fh"></span></a>
+		我的订单
+		<a href="#/glasses_index" class="homePage"><span class="glyphicon glyphicon-home"></span></a>
+	</div>
+</nav>
+
+<div class="orderHead">
+	<ul class="list-unstyled clearfix">
+		<li>
+			<a href="javascript:;" class="hover">全部</a>
+		</li>
+		<li>
+			<a href="javascript:;">待付款</a>
+		</li>
+		<li>
+			<a href="javascript:;">待发货</a>
+		</li>
+		<li>
+			<a href="javascript:;">待收货</a>
+		</li>
+		<li>
+			<a href="javascript:;">待评价</a>
+		</li>
+		<li>
+			<a href="javascript:;">退货/退款</a>
+		</li>
+	</ul>
+</div>
+
+<div class="container-fluid orderList" ng-repeat="ord in myOrder">
+	<div class="row orderList-head">
+		<div class="col-xs-5"><a ng-href="{{ord.storeLink}}" ng-bind="ord.storeName"></a> <i class="icon-yjt"></i></div>
+		<div class="col-xs-4 col-xs-offset-3 text-right" ng-bind="ord.orderState"></div>
+	</div>
+	<div class="row order-content">
+		<a ng-href="{{ord.prdLink}}">
+			<div class="col-xs-3 order-img">
+				<img ng-src="{{ord.prdImg}}" class="img-responsive">
+			</div>	
+			<div class="col-xs-6 text-left">
+				<div class="desc" ng-bind="ord.prdDesc"></div>
+				<div class="desc-detail" ng-bind="ord.prdDescDetail"></div>
+			</div>
+			<div class="col-xs-3 text-right">
+				<div class="price">
+					￥<span ng-bind="ord.prdPrice"></span>		
+				</div>
+				<div class="count">
+					x<span ng-bind="ord.prdCount"></span>			
+				</div>
+			</div>
+		</a>
+	</div>
+	<div class="row">
+		<div class="pull-right order-total">
+			共<span ng-bind="ord.prdCount"></span>件  
+			实付:<span>{{ord.prdCount * ord.prdPrice | currency : '￥'}}</span>
+		</div>
+	</div>
+	<div class="row">
+		<div class="pull-right order-btn" ng-bind-html="ord.prdBtnState"></div>
+	</div>
+</div>
+
+<p class="text-center order-footer">已经到底了</p>

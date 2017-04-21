@@ -1,0 +1,61 @@
+<nav class="navbar navbar-default detail">
+	<div class="container-fluid login text-center">
+		<a href="#/detail" class="back"><span class="icon-fh"></span></a>
+		购物车
+		<a href="#/glasses_index" class="homePage"><span class="glyphicon glyphicon-home"></span></a>
+	</div>
+</nav>
+
+<div class="container-fluid cart"  ng-repeat="data in dataList">
+	<div class="panel panel-default">
+	  	<div class="panel-heading">
+	  		<input type="checkbox" one-check checked="{{data.Bol}}" items="{{data.items}}"><span class="breed" ng-bind="data.breed"></span>
+	  		<span class="pull-right cartPrice">{{data.price | currency : '￥'}}</span>
+	  	</div>
+	  	<div class="panel-body">
+    		<div class="media">
+                <div class="media-left">
+           	        <a ng-href="{{data.prdLink}}">
+                        <img class="media-object" ng-src="{{data.prdImg}}" />
+                    </a>
+                </div>
+                <!-- 主体-->
+                <div class="media-body">
+                    <p class="media_title" ng-bind="data.prdTitle"></p>
+                    <p class="setColor">颜色：<span ng-bind="data.color"></span></p>
+                    <div class="clearfix">
+                    	<span class="pull-left cartPrice">{{data.price | currency : '￥'}}</span>
+                    	<span class="pull-right">x <span ng-bind="data.num" items="{{data.items}}"></span></span>
+                    </div>
+                </div>
+			</div>
+	  	</div>
+	  	<div class="panel-footer clearfix">
+	  		<div class="pull-left">
+	  			<a class="btn btn-danger glyphicon glyphicon-trash" ng-click="remove($index)"></a>
+	  			<a class="btn btn-default">促销优惠</a>
+	  		</div>
+	  		<div class="pull-right clearfix counter">
+			  	<button class="btn btn-default pull-left btn1" items="{{data.items}}" my-minus>-</button>
+			  	<input class="pull-left" type="text" ng-model="data.num" items="{{data.items}}">
+			  	<button class="btn btn-default pull-left btn2" items="{{data.items}}" my-adds>+</button>
+			</div>
+	  	</div>
+	</div>
+</div>
+
+<div class="container-fluid choose">
+	<div class="panel panel-default">
+	  	<div class="panel-heading">
+	  		<label all-orcan><input type="checkbox" checked="{{data.Bol}}">全选/取消全选 </label>
+	  		<span class="pull-right cartPrice" ng-click="removeAll()">清空购物车</span>
+	  	</div>
+	</div>
+</div>
+
+<div id="gwcClose" class="navbar navbar-default navbar-fixed-bottom">
+	<div class="gwctotal pull-left">
+		合计(不含运费)： <span>{{allPrices() | currency : '￥'}}</span>		
+	</div>
+	<div class="pull-right"><a href="#/confirmOrder">结算</a></div>
+</div>

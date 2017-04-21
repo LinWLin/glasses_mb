@@ -1,0 +1,64 @@
+<div ng-include="'page/include/header.html'"></div>
+
+
+<div ng-controller="indexCtrl" class="pageFrist">  
+    <carousel interval="myInterval" no-wrap="noWrapSlides">  
+        <slide ng-repeat="slide in slides" active="slide.active">  
+            <img ng-src="{{slide.image}}" style="margin:auto;">
+        </slide>  
+    </carousel> 
+
+	<div id="nav-memu" class="container-fluid" style="margin-top: 10px;">
+		<ul class="memu list-unstyled clearfix">
+			<li ng-repeat="memu in memues">
+				<a ng-href="{{memu.href}}" ng-click="swichVal($event)">
+					<div class="{{memu.class}}"></div>
+					<div class="memu-txt" ng-bind="memu.text"></div>
+				</a>
+			</li>
+		</ul>
+	</div>
+
+	<div id="seckill" class="container-fluid clearfix">
+		<div class="seckill pull-left">
+			<a href="javascript:;">
+				<img class="img-responsive" src="img/miaosha.jpg">
+			</a>
+		</div>
+		<div class="preference pull-left">
+			<a href="javascript:;">
+				<img class="img-responsive" src="img/tiantiantejia.png">
+			</a>
+			<a href="javascript:;">
+				<img class="img-responsive" src="img/ppjx.png">
+			</a>
+		</div>
+	</div>
+
+	<div id="products" class="container-fluid" style="margin-top: 10px;">
+		<div class="prd-main" ng-repeat="prdMain in prdHead">
+			<div class="prd-head clearfix">
+				<p class="pull-left" ng-bind="prdMain.title"></p>
+				<p class="prd-more pull-right">更多&gt;&gt;</p>
+			</div>
+		
+			<ul class="list-unstyled clearfix">
+				<li ng-repeat="prd in prdMain.products">
+					<a ng-href="{{prd.href}}">
+						<div class="prd-img">
+							<img class="img-responsive" ng-src="{{prd.image}}">
+						</div>
+						<div class="img-info">
+							<div class="desc" ng-bind="prd.desc"></div>
+							<div class="price clearfix">
+								<p class="pull-left" ng-bind-html="prd.price"></p>
+								<p class="pull-right">已售:<span ng-bind="prd.sold"></span>件</p>
+							</div>
+						</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div> 
+<div ng-include="'page/include/footer.html'"></div>

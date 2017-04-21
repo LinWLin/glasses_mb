@@ -1,0 +1,48 @@
+<div ng-include="'page/include/header.html'"></div>
+
+<div class="container">
+	<div class="form-group has-feedback">
+		<input type="text" class="form-control" placeholder="搜索菜品和原料.."/>
+		<span class="form-control-feedback">
+			<spn class="glyphicon glyphicon-search"></spn>
+		</span>
+	</div>
+	<ul class="list-group dish_list">
+		<li class="list-group-item">
+			<div class="media">
+                <div class="media-left">
+           	        <a href="#">
+                        <img class="media-object" src="img/p0281.jpg"/>
+                    </a>
+                </div>
+                    <!-- 主体-->
+                <div class="media-body">
+                    <h3>【酸甜开胃虾】</h3>
+                    <p>主要食料：明虾、番茄酱、白糖、白醋、葱、姜、淀粉</p>
+                    <hr />
+                    <div>价格：￥36.00</div>
+                </div>
+			</div>
+		</li>
+		<li class="list-group-item">
+			<div class="media">
+				<div class="media-left">
+           	        <a href="#">
+                        <img class="media-object" src="img/p2679.jpg"/>
+                    </a>
+                </div>
+                    <!-- 主体-->
+                <div class="media-body">
+                    <h3>【桂香紫薯山药卷】</h3>
+                    <p>主要食料：切片吐司、紫薯、铁棍山药、糖桂花、炼乳</p>
+                    <hr />
+                    <div>价格：￥16.50</div>
+                </div>
+			</div>
+		</li>
+	</ul>
+	<button class="btn btn-success" style="width:100%;">加载更多</button>
+	<div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> 已经没有数据可以加载了</div>
+</div>
+
+<div ng-include="'page/include/footer.html'"></div>

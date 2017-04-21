@@ -1,0 +1,162 @@
+<nav class="navbar navbar-default detail">
+	<div class="container-fluid login text-center">
+		<a href="#/classify" class="back"><span class="icon-fh"></span></a>
+		<a href="#/glasses_index" class="homePage"><span class="glyphicon glyphicon-home"></span></a>
+	</div>
+</nav>
+
+<div id="navBtm" class="navbar navbar-default navbar-fixed-bottom">
+	<ul class="list-unstyled clearfix pull-left">
+		<li>
+			<a href="javascript:;">
+				<i class="icon-yue"></i>
+				<span>预约</span>
+			</a>
+		</li>
+		<li>
+			<a href="javascript:;">
+				<i class="icon-shou"></i>
+				<span>收藏</span>
+			</a>
+		</li>
+		<li>
+			<a href="#/shopping_cart">
+				<i class="icon-che"></i>
+				<span>购物车</span>
+			</a>
+		</li>
+	</ul>
+	<div class="pull-right">
+		<a class="addGwc" href="javascript:;">加入购物车</a>
+		<a class="paying" href="#/buyNow">立即购买</a>
+	</div>
+</div>
+
+<div class="detailImg">
+	<carousel interval="myInterval" no-wrap="noWrapSlides">  
+	    <slide ng-repeat="slide in slides" active="slide.active">  
+	        <img ng-src="{{slide.image}}" style="margin:auto;">
+	    </slide>  
+	</carousel>
+</div>
+
+<div class="container-fluid cont">
+	<div class="row detail-title-wrap">
+		<div class="col-xs-9">
+			<p class="detail-title-wrap-text">啥啥啥 这都是啥玩意 啥啥啥 这都是啥玩意</p>
+		</div>			
+		<div class="col-xs-3">
+			<span class="detail-share"><i class="icon-fx"></i>分享</span>
+		</div>
+	</div>
+	<ul class="row production-detail-info list-unstyled">
+		<li class="col-xs-4 detail-price">
+			<strong class="curPrice">¥299</strong>
+		</li>
+		<li class="col-xs-4">
+			<span>快递：免运费</span>
+		</li>
+		<li class="col-xs-4 text-right">
+			<span>250人已买</span>
+		</li>
+	</ul>
+	<ul class="row guarantee list-unstyled">
+		<li><i class="icom-gou"></i><span>线上线下同价</span></li>
+		<li><i class="icom-gou"></i><span>免费验光</span></li>
+		<li><i class="icom-gou"></i><span>七天退换</span></li>
+		<li><i class="icom-gou"></i><span>免费保养</span></li>
+		<li><i class="icom-gou"></i><span>人工验货</span></li>
+		<li><i class="icom-gou"></i><span>全场包邮</span></li>
+	</ul>
+</div>
+<div class="container-fluid cont">
+	<div class="row detailSelect">
+		<a href="javascript:;">
+			<san>选择颜色</span>
+			<span class="pull-right"></span>
+		</a>
+	</div>
+	<div class="row detailSelect">
+		<a href="javascript:;">
+			<san>选择套餐</span>
+			<span class="pull-right"></span>
+		</a>
+	</div>
+</div>
+
+<div class="container-fluid cont">
+	<ul class="row list-unstyled image-text-detail clearfix">
+		<li ng-class="{hover:isHover}" ng-click="cut1()">图文详情</li>
+		<li ng-class="{hover:isTrue}" ng-click="cut2()">商品评价</li>
+		<li ng-class="{hover:isFalse}" ng-click="cut3()">商品参数</li>
+	</ul>
+</div>
+
+
+<div class="container-fluid prdImgDetail" style="padding:0;" ng-show="isHover">
+	<img class="img-responsive" src="img/detailimg1.jpg">
+	<img class="img-responsive" src="img/detailimg2.jpg">
+	<img class="img-responsive" src="img/detailimg3.jpg">
+	<img class="img-responsive" src="img/detailimg4.jpg">
+	<img class="img-responsive" src="img/detailimg5.jpg">
+	<img class="img-responsive" src="img/detailimg6.jpg">
+</div>
+
+<div class="container-fluid" style="padding:0;" ng-show="isTrue">
+	<div class="info_discuss row" ng-repeat="evaluate in prdEval">
+		<div class="cnt_hd clearfix">
+			<span class="pull-left" ng-bind="evaluate.userName"></span>
+			<i class="ico ctn_ico pull-right"></i>
+		</div>
+		<div class="cnt_ft" ng-bind-html="evaluate.eval"></div>
+		<div class="cnt_bd">
+			<span>评论：</span>
+			<div ng-bind="evaluate.discuss"></div>
+		</div>
+	</div>
+	<div class="info_discuss row text-center">
+		没有更多评价了
+	</div>
+</div>
+<div class="container-fluid" style="padding:0;" ng-show="isFalse">
+	<div class="prdArgument row" ng-repeat="arg in prdArgument">
+		<span class="pull-left" ng-bind="arg.action"></span>
+		<span class="pull-right" ng-bind="arg.actionValue"></span>
+	</div>
+</div>
+
+
+
+
+
+<div class="detail-footer">
+	<h3>看了又看</h3>
+</div>
+
+<div class="container-fluid">
+	<div class="screen-main">
+		<ul class="list-unstyled clearfix">
+			<li ng-repeat="dal in detailPrd">
+				<a ng-href="{{dal.hrdf}}">
+					<div class="prd-img">
+						<img class="img-responsive" ng-src="{{dal.src}}">
+					</div>
+					<div class="img-info">
+						<div class="desc" ng-bind="dal.desc"></div>
+						<div class="price clearfix">
+							<p class="pull-left" ng-bind-html="dal.price"></p>
+							<p class="pull-right">已售:<span ng-bind="dal.sold"></span>件</p>
+						</div>
+					</div>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<div class="detail-footer">
+	<h3>亲 已经到底了呢</h3>
+</div>
+
+<div ng-include="'page/include/footer.html'"></div>
+<div style="padding-bottom: 55px;"></div>

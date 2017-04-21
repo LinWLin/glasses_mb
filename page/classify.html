@@ -1,0 +1,46 @@
+<nav class="navbar navbar-default navbar-fixed-top mycenter" style="border-bottom-color:transparent; ">
+	<div class="container-fluid login text-center">
+		<a href="#/glasses_index" class="back"><span class="icon-fh"></span></a>
+		光学眼镜
+	</div>
+</nav>
+
+<div class="screen">
+	<ul class="list-unstyled clearfix">
+		<li>
+			<a href="javascript:;" class="hover">综合</a>
+		</li>
+		<li>
+			<a href="javascript:;">销量</a>
+		</li>
+		<li>
+			<a href="javascript:;">价格</a>
+		</li>
+		<li>
+			<a href="javascript:;">筛选 <i class="icon-sx"></i></a>
+		</li>
+	</ul>
+</div>
+
+<div class="container-fluid">
+	<div class="screen-main">
+		<ul class="list-unstyled clearfix">
+			<li ng-repeat="dataList in detailList">
+				<a ng-href="{{dataList.href}}">
+					<div class="prd-img">
+						<img class="img-responsive" ng-src="{{dataList.src}}">
+					</div>
+					<div class="img-info">
+						<div class="desc" ng-bind="dataList.desc"></div>
+						<div class="price clearfix">
+							<p class="pull-left" ng-bind-html="dataList.price"></p>
+							<p class="pull-right">已售:<span ng-bind="dataList.sold"></span>件</p>
+						</div>
+					</div>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<p id="loading" class="text-center">正在加载...</p>
+

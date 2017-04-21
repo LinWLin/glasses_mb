@@ -1,0 +1,30 @@
+<nav id="login-hd" class="navbar navbar-default navbar-fixed-top">
+	<div class="container-fluid login text-center">
+		<a href="#/mycenter" class="back pull-left"><span class="icon-fh"></span></a>
+		快速注册
+	</div>
+</nav>
+<div class="logo-login">
+	<img src="img/banner4.jpg" class="img-responsive">
+</div>
+<div class="container-fluid register login-bg">
+	<form class="form-one" ng-hide="focus">
+		<div class="form-group">
+			<label>手机号码：</label>
+			<input class="form-control" type="tel" placeholder="手机号" reg="^0{0,1}(1[3-9][0-9])[0-9]{8}$" required maxlength="11" minlength="11">
+		</div>
+		<div class="form-group clearfix">
+			<label>验证码：</label>
+			<input class="form-control verify" type="tel" placeholder="动态验证码" required maxlength="6" minlength="6" reg="^\d{6}$">
+			<a class="verify-send" href="javascript:;">获取验证码</a>
+		</div>
+		<div class="form-group">
+			<label>密码：</label>
+			<input class="form-control" type="password" placeholder="密码" required maxlength="11" minlength="11">
+		</div>
+		<div class="glasses_xy form-group">
+            <input type="checkbox" > 已同意眼镜商城<a href="javascript:;">用户服务协议</a>
+        </div>
+		<button class="btn btn-success btn-block" type="submit">注册</button>
+	</form>
+</div>

@@ -1,0 +1,38 @@
+<nav class="navbar navbar-default detail">
+	<div class="container-fluid login text-center">
+		<a href="#/confirmOrder" class="back"><span class="icon-fh"></span></a>
+		确认订单
+	</div>
+</nav>
+
+<div class="container-fluid orderList" ng-repeat="conf in confirmOrds">
+	<div class="row orderList-head">
+		<span ng-bind="conf.merchant"></span>
+	</div>
+	<div class="row order-content">
+		
+		<div class="col-xs-3 order-img">
+			<img ng-src="{{conf.img}}" class="img-responsive">
+		</div>	
+		<div class="col-xs-6 text-left">
+			<div class="desc" ng-bind="conf.desc"></div>
+			<div class="desc-detail" ng-bind="conf.descDetail"></div>
+		</div>
+		<div class="col-xs-3 text-right">
+			<div class="price" ng-bind="conf.price | currency : '￥'"></div>
+			<div class="count">
+				x<span ng-bind="conf.num"></span>			
+			</div>
+		</div>
+	
+	</div>
+	<div class="row clearfix transport">
+		<div class="pull-left">运费：</div>
+		<div class="pull-right" ng-bind="conf.freight"></div>
+	</div>
+	<div class="row transport">
+		<span>给商家留言：</span>
+		<input type="text" name="" placeholder="选填，不超过120个字">
+	</div>
+</div>
+<p class="text-center order-footer">已经到底了</p>
